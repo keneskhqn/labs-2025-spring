@@ -2,18 +2,18 @@ import pygame
 import random
 import time
 
-pygame.init() # initializes all the pygame sub-modules
+pygame.init() 
 
 WIDTH = 400
 HEIGHT = 600
-screen = pygame.display.set_mode((WIDTH, HEIGHT)) # creating a game window
-# set_mode() takes a tuple as an argument
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
 
 background = pygame.image.load(r'C:\Users\User\Desktop\pythonkbtu\labs-2025-spring\lab8\racer\resources\AnimatedStreet.png')
 
 running = True
 
-# this object allows us to set the FPS
+
 clock = pygame.time.Clock()
 FPS = 60 
 
@@ -28,10 +28,8 @@ coin_sound = pygame.mixer.Sound(r'C:\Users\User\Desktop\pythonkbtu\labs-2025-spr
 font = pygame.font.SysFont("Verdana", 60)
 game_over = font.render("Game Over", True, "black")
 
-score = 0 #my code
-
-pygame.mixer.music.play(-1) # plays background music in a loop
-
+score = 0
+pygame.mixer.music.play(-1) 
 PLAYER_SPEED = 5
 ENEMY_SPEED = 10
 
@@ -46,9 +44,9 @@ class Player(pygame.sprite.Sprite):
     def move(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            self.rect.move_ip(-PLAYER_SPEED, 0) # move in place
+            self.rect.move_ip(-PLAYER_SPEED, 0) 
         if keys[pygame.K_RIGHT]:
-            self.rect.move_ip(PLAYER_SPEED, 0) # move in place
+            self.rect.move_ip(PLAYER_SPEED, 0)
         if self.rect.left < 0:
             self.rect.left = 0
         if self.rect.right > WIDTH:
